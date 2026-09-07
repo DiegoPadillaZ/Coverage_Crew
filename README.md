@@ -197,6 +197,8 @@ python -c "import crewai, fastmcp, markdown; print('deps OK')"
 
 ## 5. Running
 
+<img width="1253" height="1305" alt="image" src="https://github.com/user-attachments/assets/57225592-4683-490c-9e1e-97090a70e7f9" />
+
 Two front doors onto the same registry:
 
 | Mode | How | When |
@@ -280,6 +282,8 @@ CVE so a first run has genuine findings to reason about.
 ---
 
 ## 7. The report
+
+<img width="1113" height="1215" alt="image" src="https://github.com/user-attachments/assets/39f22d55-2a17-4410-b894-b86d8c42a845" />
 
 Every run writes `reports/latest_briefing.html` — a styled,
 self-contained report with:
