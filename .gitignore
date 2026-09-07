@@ -1,0 +1,28 @@
+# Environment / secrets
+.env
+
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated runtime data (local SQLite registry + KEV cache)
+data/threatlens.db
+data/kev_cache.json
+
+# Generated reports (regenerated on every run)
+reports/*.html
+reports/*.md
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Capstone instruction file
+capstone_submission.txt

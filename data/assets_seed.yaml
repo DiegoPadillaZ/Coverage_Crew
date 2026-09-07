@@ -1,0 +1,100 @@
+# Example asset seed for ThreatLens Crew.
+# Add one entry per asset you actually run. This is the input that stands
+# in for a vulnerability exposure feed you don't have -- you're the source
+# of truth for what's in your environment.
+#
+# exposure:    internet-facing | internal
+# criticality: high | medium | low
+#
+# These 10 sample assets are deliberately seeded with versions that carry
+# real, well-known CVEs, so a first run of the crew has genuine findings
+# to reason about instead of coming back empty. Replace with your actual
+# environment when you're ready -- these are demo data.
+
+- name: web-prod-01
+  vendor: Apache
+  product: http_server
+  version: 2.4.49
+  exposure: internet-facing
+  criticality: high
+  notes: main customer-facing web server; CVE-2021-41773 path traversal / RCE affects this exact version
+
+- name: internal-jenkins
+  vendor: Jenkins
+  product: jenkins
+  version: 2.401
+  exposure: internal
+  criticality: medium
+  notes: CI/CD server, VPN-only access; several plugin and core CVEs reported in this release line
+
+- name: vpn-gateway
+  vendor: Fortinet
+  product: fortios
+  version: 7.0.12
+  exposure: internet-facing
+  criticality: high
+  notes: primary remote access VPN; FortiOS has had multiple actively-exploited auth-bypass CVEs across 7.0.x builds
+
+- name: log-aggregator-01
+  vendor: Apache
+  product: log4j
+  version: 2.14.1
+  exposure: internal
+  criticality: high
+  notes: shared logging library version affected by CVE-2021-44228 (Log4Shell) -- internal only, but high blast radius if reached
+
+- name: file-share-legacy
+  vendor: Samba
+  product: samba
+  version: 4.13.0
+  exposure: internal
+  criticality: medium
+  notes: legacy file share, scheduled for decommission; older Samba versions have had multiple RCE and auth issues
+
+- name: proxy-edge-01
+  vendor: nginx
+  product: nginx
+  version: 1.18.0
+  exposure: internet-facing
+  criticality: high
+  notes: reverse proxy in front of the web tier; older 1.18.x line has had disclosed HTTP request-smuggling issues
+
+- name: db-prod-postgres
+  vendor: PostgreSQL
+  product: postgresql
+  version: 13.3
+  exposure: internal
+  criticality: high
+  notes: primary application database; not internet-facing but holds sensitive customer data
+
+- name: remote-desktop-gateway
+  vendor: Microsoft
+  product: windows_server
+  version: 2019
+  exposure: internet-facing
+  criticality: high
+  notes: RDP gateway for remote admin access; Windows Server has had multiple critical RDP-related CVEs historically
+
+- name: confluence-wiki
+  vendor: Atlassian
+  product: confluence
+  version: 7.13.0
+  exposure: internet-facing
+  criticality: medium
+  notes: internal documentation wiki, exposed for remote employee access; Confluence has had several actively-exploited RCEs
+
+- name: struts-legacy-app
+  vendor: Apache
+  product: struts2
+  version: 2.3.31
+  exposure: internet-facing
+  criticality: high
+  notes: legacy internal tool exposed via a partner-facing API; Struts2 has a long history of critical RCE CVEs
+
+- name: ftp-transfer-01
+  vendor: vsftpd
+  product: vsftpd
+  version: 2.3.4
+  exposure: internet-facing
+  criticality: low
+  notes: legacy file transfer for a single external partner; this version has a well-known backdoor CVE (CVE-2011-2523)

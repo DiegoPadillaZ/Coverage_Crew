@@ -1,0 +1,4 @@
+crewai[anthropic]>=1.15.0
+fastmcp>=3.4.0
+pydantic>=2.0
+markdown>=3.5
